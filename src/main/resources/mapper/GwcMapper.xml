@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.java.dao.GwcMapper">
+    <select id="getGwcs" resultType="java.util.HashMap">
+        select * from gwc where userId=#{userId}
+    </select>
+    <select id="getGwc" resultType="java.util.HashMap">
+        select * from gwc where gid=#{gid}
+    </select>
+    <delete id="del1">
+        delete from gwc where gid=#{gid}
+    </delete>
+    <delete id="del2">
+        delete from gwc where userId=#{userId}
+    </delete>
+    <update id="upd">
+        update gwc set gnum=#{num} where gid=#{gid}
+    </update>
+    <insert id="add" parameterType="java.util.HashMap">
+        insert into gwc values(#{gid},#{gname},#{gprice},#{gpic},#{gnum},#{userId})
+    </insert>
+</mapper>
